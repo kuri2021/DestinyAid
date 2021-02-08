@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/bnv_information"
+        android:title="업데이트"
+        android:icon="@android:drawable/btn_default"/>
+    <item android:id="@+id/bnv_inventory"
+        android:title="인벤토리"
+        android:icon="@android:drawable/btn_default"/>
+    <item android:id="@+id/bnv_clan"
+        android:title="클랜"
+        android:icon="@android:drawable/btn_default"/>
+    <item android:id="@+id/bnv_collection"
+        android:title="수집품"
+        android:icon="@android:drawable/btn_default"/>
+    <item android:id="@+id/bnv_logout"
+        android:title="로그아웃"
+        android:icon="@android:drawable/btn_default"/>
+
+</menu>

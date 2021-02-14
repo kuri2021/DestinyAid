@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="job_weapon">
+        <item>물리</item>
+        <item>에너지</item>
+        <item>중화기</item>
+    </string-array>
+    <string-array name="job_armor">
+        <item>머리방어구</item>
+        <item>팔방어구</item>
+        <item>가슴방어구</item>
+        <item>다리방어구</item>
+        <item>직업방어구</item>
+    </string-array>
+</resources>

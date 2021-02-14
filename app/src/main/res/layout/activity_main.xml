@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:padding="16dp">
+    android:background="#ff404040">
 
     <FrameLayout
         android:id="@+id/fragment"
@@ -20,6 +20,8 @@
         android:id="@+id/bnv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/bottom"/>
+        app:menu="@menu/bottom"
+        android:background="#ff515151"
+        app:itemTextColor="@color/white"/>
 
 </LinearLayout>

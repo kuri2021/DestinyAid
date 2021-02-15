@@ -3,7 +3,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:background="#ff404040">
 
     <LinearLayout
@@ -32,31 +31,14 @@
             android:gravity="center"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:padding="8dp"
             android:textColor="@color/white"/>
 
-        <RelativeLayout
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="4dp">
-            <ImageView
-                android:id="@+id/iv_strike"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:src="@drawable/fdkjglsd"/>
-            <ImageView
-                android:id="@+id/iv_gambit"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/ganbit2"/>
-            <ImageView
-                android:id="@+id/iv_crucible"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/pvp"/>
-        </RelativeLayout>
+            android:layout_height="wrap_content">
+        </androidx.recyclerview.widget.RecyclerView>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,59 +49,7 @@
             android:textColor="@color/white" />
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <ImageView
-                android:id="@+id/iv_beyondlight"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:src="@drawable/fdkjglsd"/>
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/ganbit2"/>
 
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/pvp"/>
-        </RelativeLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="행성"
-            android:gravity="center"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/white" />
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            >
-            <ImageView
-                android:id="@+id/iv_"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-
-                android:src="@drawable/fdkjglsd"/>
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/ganbit2"/>
-
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/pvp"/>
-        </RelativeLayout>
     </LinearLayout>
 
 

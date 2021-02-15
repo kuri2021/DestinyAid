@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#404040">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tv_clan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="클랜"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

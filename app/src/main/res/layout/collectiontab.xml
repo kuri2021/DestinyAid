@@ -6,4 +6,12 @@
     android:orientation="vertical"
     android:background="#ff404040">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="소집품"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:layout_gravity="center"/>
+
 </LinearLayout>

@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    InformationActivity informationActivity;
     BottomNavigationView bnv;
     FragmentManager fragmentManager;
 
@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.bnv_information:
                         fragment=new InformationActivity();
+                        informationActivity= (InformationActivity) fragmentManager.findFragmentById(R.id.fragment);
                         break;
                     case R.id.bnv_inventory:
                         fragment=new InventoryActivity();

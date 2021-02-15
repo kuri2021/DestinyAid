@@ -34,22 +34,48 @@
             android:textStyle="bold"
             android:padding="8dp"
             android:textColor="@color/white"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="시련의장"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:background="#FF993333"
+            android:paddingLeft="4dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/strike_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="vertical"/>
+            android:orientation="vertical"
+            android:background="#FF771111"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_centerInParent="true"
+            android:layout_margin="4dp"
+            android:background="#FF555555" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="행성"
-            android:gravity="center"
-            android:textSize="24sp"
+            android:text="시련의장"
+            android:textColor="@color/white"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/white" />
+            android:background="#FF993333"
+            android:paddingLeft="4dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            android:background="#FF771111"/>
+
 
 
 

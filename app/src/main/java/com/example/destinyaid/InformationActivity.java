@@ -16,12 +16,14 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
+import java.util.ArrayList;
+
 public class InformationActivity extends Fragment {
 
-    Context context;
     RecyclerView recyclerView;
+    ArrayList<Item> items=new ArrayList<>();
+    MyAdapter adapter;
     ViewPager2 vp;
-    int id=0;
 
     @Nullable
     @Override
@@ -29,10 +31,17 @@ public class InformationActivity extends Fragment {
         View view=inflater.inflate(R.layout.informationtab,container,false);
 
 
+        items.add(new Item("점령","거점을 점령하고 상대를 처치하여 점수를 획득하시오"));
+        items.add(new Item("점령","거점을 점령하고 상대를 처치하여 점수를 획득하시오"));
+        items.add(new Item("점령","거점을 점령하고 상대를 처치하여 점수를 획득하시오"));
+        items.add(new Item("점령","거점을 점령하고 상대를 처치하여 점수를 획득하시오"));
+        items.add(new Item("점령","거점을 점령하고 상대를 처치하여 점수를 획득하시오"));
+        items.add(new Item("점령","거점을 점령하고 상대를 처치하여 점수를 획득하시오"));
+        items.add(new Item("점령","거점을 점령하고 상대를 처치하여 점수를 획득하시오"));
+        recyclerView=view.findViewById(R.id.strike_recyclerview);
+        adapter=new MyAdapter(getActivity(),items);
+        recyclerView.setAdapter(adapter);
         return view;
     }
-
-
-
 
 }

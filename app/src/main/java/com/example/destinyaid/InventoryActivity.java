@@ -20,8 +20,6 @@ public class InventoryActivity extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        spinner1=getView().findViewById(R.id.job_class);
-        spinner2=getView().findViewById(R.id.job_equipment);
         return inflater.inflate(R.layout.inventorytab,container,false);
     }
 

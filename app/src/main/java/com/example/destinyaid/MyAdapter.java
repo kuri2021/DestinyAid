@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter {
@@ -36,7 +38,7 @@ public class MyAdapter extends RecyclerView.Adapter {
         VH vh= (VH) holder;
 
         Item item=items.get(position);
-//        vh.iv.setImageResource(R.drawable.pvp);
+        Glide.with(context).load(item.iv).into(vh.iv);
         vh.tv_title.setText(item.title);
         vh.tv_content.setText(item.contents);
     }
@@ -48,12 +50,13 @@ public class MyAdapter extends RecyclerView.Adapter {
 
     class VH extends RecyclerView.ViewHolder{
         TextView tv_title,tv_content;
-//        ImageView iv;
+        ImageView iv;
 
         public VH(@NonNull View itemView) {
             super(itemView);
             tv_title=itemView.findViewById(R.id.tv_title);
             tv_content=itemView.findViewById(R.id.tv_content);
+            iv=itemView.findViewById(R.id.iv);
         }
     }
 }

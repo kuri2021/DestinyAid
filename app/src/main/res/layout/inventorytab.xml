@@ -9,11 +9,10 @@
     <Spinner
         android:id="@+id/job_class"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:spinnerMode="dropdown"
-        android:entries="@array/job_class"
-        android:popupBackground="@drawable/pvp"/>
+        android:entries="@array/job_class" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -23,7 +22,7 @@
     <Spinner
         android:id="@+id/job_equipment"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:spinnerMode="dropdown"
         android:entries="@array/job_weapon"/>

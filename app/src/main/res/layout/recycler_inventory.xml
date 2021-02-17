@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/item"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/purple_500">
+    <ImageView
+        android:id="@+id/Equipitem_iv"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="12dp"/>
+    <TextView
+        android:id="@+id/Equipitemname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/Equipitem_iv"
+        android:text="Last word"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginTop="8dp"/>
+    <ImageView
+        android:id="@+id/Equipitemlock_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff222222"
+        android:layout_below="@+id/Equipitemname_tv"
+        />
+    <TextView
+        android:id="@+id/kategorie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="핸드캐논"
+        android:textColor="@color/white"
+        android:layout_below="@+id/Equipitemname_tv"
+        android:layout_toRightOf="@+id/Equipitem_iv"/>
+
+    <ImageView
+        android:id="@+id/"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"/>
+
+
+
+</RelativeLayout>

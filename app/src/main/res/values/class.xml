@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="job_class">
-        <item>헌터</item>
-        <item>타이탄</item>
-        <item>워록</item>
-    </string-array>
-</resources>

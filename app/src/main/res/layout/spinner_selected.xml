@@ -4,6 +4,6 @@
     android:layout_height="match_parent"
     android:text="시장"
     android:padding="8dp"
-    android:textColor="#ffffff00">
+    android:textColor="#ff333333">
 
 </TextView>

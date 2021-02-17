@@ -1,34 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#ff404040"
     android:orientation="vertical">
 
     <Spinner
         android:id="@+id/job_class"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:background="@color/white"
-        android:spinnerMode="dropdown"
-        android:entries="@array/job_class" />
+        android:spinnerMode="dropdown"/>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@color/purple_500" />
 
-    <Spinner
-        android:id="@+id/job_equipment"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:spinnerMode="dropdown"
-        android:entries="@array/job_weapon"/>
+        android:layout_height="wrap_content">
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tab_item1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="무기"/>
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tab_item2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="방어구"/>
+    </com.google.android.material.tabs.TabLayout>
+    <FrameLayout
+        android:id="@+id/inventory_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+
 
 </LinearLayout>

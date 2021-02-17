@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:spinnerMode="dropdown"
-            android:entries="@array/주간리셋활동" />
+            android:background="@color/white"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/crucible_recyclerview"

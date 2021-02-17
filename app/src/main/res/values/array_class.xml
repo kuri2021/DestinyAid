@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="job_class">
+        <item>헌터</item>
+        <item>타이탄</item>
+        <item>워록</item>
+    </string-array>
     <string-array name="job_weapon">
         <item>물리</item>
         <item>에너지</item>
@@ -11,5 +16,12 @@
         <item>가슴방어구</item>
         <item>다리방어구</item>
         <item>직업방어구</item>
+    </string-array>
+    <string-array name="주간리셋활동">
+        <item>시련의장</item>
+        <item>공격전/황혼전</item>
+        <item>레이드</item>
+        <item>유로파</item>
+        <item>기타</item>
     </string-array>
 </resources>

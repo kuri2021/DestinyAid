@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         fragmentManager=getSupportFragmentManager();
 
+
+
         //로그인후 첫페이지
         FragmentTransaction tran=fragmentManager.beginTransaction();
         tran.add(R.id.fragment,new InformationActivity());

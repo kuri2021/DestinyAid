@@ -3,8 +3,14 @@
     android:id="@+id/item"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="92dp"
     android:background="@color/purple_500">
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/Equipitemname_tv"
+        android:background="#ff333333"/>
+
     <ImageView
         android:id="@+id/Equipitem_iv"
         android:layout_width="80dp"
@@ -41,10 +47,12 @@
         android:layout_toRightOf="@+id/Equipitem_iv"/>
 
     <ImageView
-        android:id="@+id/"
+        android:id="@+id/ability"
+        android:layout_marginTop="24dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"/>
+        android:layout_toRightOf="@+id/Equipitem_iv"
+        android:layout_below="@+id/kategorie"/>
 
 
 

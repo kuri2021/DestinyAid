@@ -43,7 +43,7 @@ public class InventoryActivity extends Fragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 FragmentTransaction transaction=getFragmentManager().beginTransaction();
-                Fragment fragment=null;
+                Fragment fragment;
                 switch (tab.getPosition()){
                     case 0:
                         fragment=new Fragment_Weapon();
@@ -71,9 +71,5 @@ public class InventoryActivity extends Fragment {
 
 
         return view;
-    }
-
-    private void changView(int pos) {
-
     }
 }

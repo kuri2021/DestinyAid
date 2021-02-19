@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                         tran.commit();
                         break;
                     case R.id.bnv_logout:
+
                         Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
                         startActivity(intent);
                         break;

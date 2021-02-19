@@ -3,9 +3,9 @@
     package="com.example.destinyaid">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION"/>
-    <uses-permission android:name="android.permission.READ_USER_DICTIONARY"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DestinyAid"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Collection_Wonder"></activity>
         <activity
             android:name=".LoginActivity"
             android:theme="@style/MyActionbar">
@@ -24,7 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

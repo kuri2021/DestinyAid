@@ -6,6 +6,7 @@
     android:layout_height="92dp"
     android:background="@color/purple_500">
     <RelativeLayout
+        android:id="@+id/Equipitem_coler"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_below="@+id/Equipitemname_tv"
@@ -26,17 +27,21 @@
         android:textStyle="bold"
         android:textColor="@color/white"
         android:layout_marginTop="8dp"/>
-    <ImageView
-        android:id="@+id/Equipitemlock_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"/>
-    <FrameLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ff222222"
+        android:background="#ff333333"
         android:layout_below="@+id/Equipitemname_tv"
-        />
+        >
+        <ImageView
+            android:id="@+id/Equipitemlock_iv"
+            android:layout_marginRight="16dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_baseline_toc_24"/>
+    </RelativeLayout>
     <TextView
         android:id="@+id/kategorie"
         android:layout_width="wrap_content"
@@ -47,11 +52,36 @@
         android:layout_toRightOf="@+id/Equipitem_iv"/>
 
     <ImageView
-        android:id="@+id/ability"
-        android:layout_marginTop="24dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/ability1"
+        android:layout_marginTop="16dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_baseline_toc_24"
         android:layout_toRightOf="@+id/Equipitem_iv"
+        android:layout_below="@+id/kategorie"/>
+    <ImageView
+        android:id="@+id/ability2"
+        android:layout_marginTop="16dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_baseline_toc_24"
+        android:layout_toRightOf="@+id/ability1"
+        android:layout_below="@+id/kategorie"/>
+    <ImageView
+        android:id="@+id/ability3"
+        android:layout_marginTop="16dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_baseline_toc_24"
+        android:layout_toRightOf="@+id/ability2"
+        android:layout_below="@+id/kategorie"/>
+    <ImageView
+        android:id="@+id/ability4"
+        android:layout_marginTop="16dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_baseline_toc_24"
+        android:layout_toRightOf="@+id/ability3"
         android:layout_below="@+id/kategorie"/>
 
 

@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DestinyAid"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Collection_Wonder"></activity>
+        <activity android:name=".Item_DetailActivity"></activity>
+        <activity android:name=".Collection_Wonder" />
         <activity
             android:name=".LoginActivity"
             android:theme="@style/MyActionbar">

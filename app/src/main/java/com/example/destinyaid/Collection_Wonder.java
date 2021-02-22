@@ -9,29 +9,25 @@ import java.util.ArrayList;
 
 public class Collection_Wonder extends AppCompatActivity {
 
+    ArrayList<Collection_wonder_Item> items=new ArrayList<>();
     RecyclerView recyclerView;
-    ArrayList<Collection_wonder_Item> collectionWonderItems=new ArrayList<>();
     Collection_wonder_Adapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection__wonder);
+
+        items.add(new Collection_wonder_Item("test","test"
+                ,R.drawable.lastword_small
+                ,R.drawable.kinds
+                ,R.drawable.ic_baseline_backpack_24
+                ,R.drawable.ic_baseline_backpack_24
+                ,R.drawable.ic_baseline_backpack_24
+                ,R.drawable.ic_baseline_backpack_24));
         recyclerView=findViewById(R.id.recycler_collection_wonder);
-
-        collectionWonderItems.add(new Collection_wonder_Item(
-                "lastword",
-                "handcanon",
-                R.drawable.ic_baseline_arrow_circle_up_24,
-                R.drawable.ic_baseline_arrow_circle_up_24,
-                R.drawable.ic_baseline_arrow_circle_up_24,
-                R.drawable.ic_baseline_arrow_circle_up_24,
-                R.drawable.ic_baseline_arrow_circle_up_24,
-                R.drawable.ic_baseline_arrow_circle_up_24));
-
-        adapter=new Collection_wonder_Adapter(this,collectionWonderItems);
+        adapter= new Collection_wonder_Adapter(this,items);
         recyclerView.setAdapter(adapter);
-
 
     }
 }

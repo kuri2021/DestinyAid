@@ -1,7 +1,12 @@
 package com.example.destinyaid;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,9 +35,9 @@ public class Collection_wonder_Adapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater=LayoutInflater.from(context);
+        View itemview=inflater.inflate(R.layout.recycler_inventory,parent,false);
+        VH holder=new VH(itemview);
 
-        View itemView=inflater.inflate(R.layout.collection_category,parent,false);
-        VH holder=new VH(itemView);
         return holder;
     }
 
@@ -49,15 +54,15 @@ public class Collection_wonder_Adapter extends RecyclerView.Adapter {
         Glide.with(context).load(item.ability2).into(vh.ability2);
         Glide.with(context).load(item.ability3).into(vh.ability3);
         Glide.with(context).load(item.ability4).into(vh.ability4);
+
     }
 
     @Override
-    public int getItemCount() {
-        return items.size();
-    }
+    public int getItemCount() { return items.size(); }
 
 
     class VH extends RecyclerView.ViewHolder {
+
         TextView Equipitemname_tv;
         TextView kategorie;
         ImageView Equipitem_iv;
@@ -67,18 +72,45 @@ public class Collection_wonder_Adapter extends RecyclerView.Adapter {
         ImageView ability3;
         ImageView ability4;
 
-
         public VH(@NonNull View itemView) {
             super(itemView);
+
             Equipitemname_tv=itemView.findViewById(R.id.Equipitemname_tv);
             kategorie=itemView.findViewById(R.id.kategorie);
-            Equipitem_iv=itemView.findViewById(R.id.Equipitem_iv);
             Equipitemlock_iv=itemView.findViewById(R.id.Equipitemlock_iv);
+            Equipitem_iv=itemView.findViewById(R.id.Equipitem_iv);
             ability1=itemView.findViewById(R.id.ability1);
             ability2=itemView.findViewById(R.id.ability2);
             ability3=itemView.findViewById(R.id.ability3);
             ability4=itemView.findViewById(R.id.ability4);
 
+            Equipitem_iv.bringToFront();
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position=getLayoutPosition();
+
+                    String equipitemname_tv=items.get(position).Equipitemname_tv;
+                    int equipitem_iv=items.get(position).Equipitem_iv;
+                    int equipitemlock_iv=items.get(position).Equipitemlock_iv;
+
+                    Intent intent=new Intent(context,Item_DetailActivity.class);
+                    intent.putExtra("equipitemname_tv",equipitemname_tv);
+                    intent.putExtra("equipitem_iv",equipitem_iv);
+                    intent.putExtra("equipitemlock_iv",equipitemlock_iv);
+
+                    if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
+                        ActivityOptions options=ActivityOptions.makeSceneTransitionAnimation((Activity) context, new Pair[]{new Pair<>(equipitem_iv, "equipitem_iv")});
+                        context.startActivities(new Intent[]{intent},options.toBundle());
+                    }else{
+                        context.startActivities(new Intent[]{intent});
+                    }
+
+
+
+                }
+            });
 
         }
     }

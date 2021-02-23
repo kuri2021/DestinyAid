@@ -18,7 +18,7 @@ public class Collection_Wonder extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection__wonder);
 
-        items.add(new Collection_wonder_Item("test","test"
+        items.add(new Collection_wonder_Item("유언","test"
                 ,R.drawable.lastword_small
                 ,R.drawable.kinds
                 ,R.drawable.ic_baseline_backpack_24

@@ -44,16 +44,9 @@ public class Item_DetailActivity extends AppCompatActivity {
         item_coller=findViewById(R.id.item_coller);
 
         Intent intent=getIntent();
-        String equipitemname_tv=intent.getStringExtra("equipitemname_tv");
-        int equipitem_iv=intent.getIntExtra("equipitem_iv",R.drawable.pvp);
-        int equipitemlock_iv=intent.getIntExtra("equipitemlock_iv",R.drawable.kinds);
-
-        item_name.setText(equipitemname_tv);
-        Glide.with(this).load(item_small).into(item_small);
-        Glide.with(this).load(kinds).into(kinds);
-
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
-            item_small.setTransitionName("equipitem_iv");
-        }
+        String name=intent.getStringExtra("name");
+        int imgId=intent.getIntExtra("img",R.drawable.ganbit2);
+        item_name.setText(name);
+        Glide.with(this).load(imgId).into(item_small);
     }
 }

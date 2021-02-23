@@ -2,12 +2,14 @@ package com.example.destinyaid;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -34,8 +36,6 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class InformationActivity extends Fragment {
 
-
-    String apikey="49e6de48ae2748b98426b183ce2cd068";
     RecyclerView recyclerView;
     ArrayList<Item> items=new ArrayList<>();
     MyAdapter adapter;
@@ -106,6 +106,7 @@ public class InformationActivity extends Fragment {
 
         return view;
     }
+
 
 
 

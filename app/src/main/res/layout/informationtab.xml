@@ -49,6 +49,11 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:orientation="vertical"
                 android:background="#ff771111"/>
+        <Button
+            android:id="@+id/Searchbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
 
 
 

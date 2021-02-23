@@ -5,22 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
+    android:padding="16dp"
     android:background="#ff404040">
 
-    <Button
-        android:id="@+id/loginbtn"
-        android:layout_width="200dp"
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LOGIN"
-        android:onClick="loginBtn"
         android:layout_centerInParent="true"/>
-    <Button
-        android:id="@+id/nextbtn"
-        android:layout_width="200dp"
+
+    <ImageButton
+        android:id="@+id/loginbtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NEXT"
-        android:onClick="NextBtn"
-        android:layout_below="@+id/loginbtn"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/next"/>
+    <Button
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:onClick="NextBtn"/>
+
 
 </RelativeLayout>

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -46,8 +47,10 @@ public class Collection_wonder_Adapter extends RecyclerView.Adapter {
         VH vh= (VH) holder;
 
         Collection_wonder_Item item=items.get(position);
+
         vh.Equipitemname_tv.setText(item.Equipitemname_tv);
         vh.kategorie.setText(item.kategorie);
+
         Glide.with(context).load(item.Equipitem_iv).into(vh.Equipitem_iv);
         Glide.with(context).load(item.Equipitemlock_iv).into(vh.Equipitemlock_iv);
         Glide.with(context).load(item.ability1).into(vh.ability1);
@@ -89,25 +92,15 @@ public class Collection_wonder_Adapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int position=getLayoutPosition();
+                    int position = getLayoutPosition();
+                    Toast.makeText(context, ""+position, Toast.LENGTH_SHORT).show();
 
-                    String equipitemname_tv=items.get(position).Equipitemname_tv;
-                    int equipitem_iv=items.get(position).Equipitem_iv;
-                    int equipitemlock_iv=items.get(position).Equipitemlock_iv;
+                    String name=items.get(position).Equipitemname_tv;
+                    int Equipitem_iv=items.get(position).Equipitem_iv;
 
-                    Intent intent=new Intent(context,Item_DetailActivity.class);
-                    intent.putExtra("equipitemname_tv",equipitemname_tv);
-                    intent.putExtra("equipitem_iv",equipitem_iv);
-                    intent.putExtra("equipitemlock_iv",equipitemlock_iv);
-
-                    if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
-                        ActivityOptions options=ActivityOptions.makeSceneTransitionAnimation((Activity) context, new Pair[]{new Pair<>(equipitem_iv, "equipitem_iv")});
-                        context.startActivities(new Intent[]{intent},options.toBundle());
-                    }else{
-                        context.startActivities(new Intent[]{intent});
-                    }
-
-
+                    Intent intent=new Intent(context, Item_DetailActivity.class);
+                    intent.putExtra("name",name);
+                    intent.putExtra("img",Equipitem_iv);
 
                 }
             });

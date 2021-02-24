@@ -11,20 +11,29 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/gost"
+        android:layout_marginTop="70dp"/>
 
-    <ImageButton
+
+
+    <ImageView
         android:id="@+id/loginbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/next"/>
+        android:layout_above="@+id/next"
+        android:src="@drawable/kakao_login_medium_wide"
+        android:onClick="loginBtn"/>
     <Button
         android:id="@+id/next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:text="게스트 로그인"
+        android:backgroundTint="#ffff4400"
         android:onClick="NextBtn"/>
 
 

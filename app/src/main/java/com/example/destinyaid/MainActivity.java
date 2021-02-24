@@ -8,19 +8,21 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.kakao.sdk.user.UserApiClient;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 
 public class MainActivity extends AppCompatActivity {
-
-    InformationActivity informationActivity;
-    InventoryActivity inventoryActivity;
-    ClanActivity clanActivity;
-    CollectionActivity collectionActivity;
-
 
     BottomNavigationView bnv;
     FragmentManager fragmentManager;
@@ -30,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fragmentManager=getSupportFragmentManager();
+        Intent intent=getIntent();
+        String email=intent.getStringExtra("email");
+        Toast.makeText(this, G.nickname+email , Toast.LENGTH_SHORT).show();
 
 
 
@@ -70,9 +75,19 @@ public class MainActivity extends AppCompatActivity {
                         tran.commit();
                         break;
                     case R.id.bnv_logout:
-
                         Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
                         startActivity(intent);
+                        UserApiClient.getInstance().logout(new Function1<Throwable, Unit>() {
+                            @Override
+                            public Unit invoke(Throwable throwable) {
+                                if(throwable!=null){
+                                    Toast.makeText(MainActivity.this, "로그아웃 fail", Toast.LENGTH_SHORT).show();
+                                }else{
+                                    Toast.makeText(MainActivity.this, "로그아웃", Toast.LENGTH_SHORT).show();
+                                }
+                                return null;
+                            }
+                        });
                         break;
                 }
 

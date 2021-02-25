@@ -45,7 +45,7 @@ public class Item_DetailActivity extends AppCompatActivity {
 
         Intent intent=getIntent();
         String name=intent.getStringExtra("name");
-        int imgId=intent.getIntExtra("img",R.drawable.ganbit2);
+        int imgId=intent.getIntExtra("img",R.drawable.osiris);
         item_name.setText(name);
         Glide.with(this).load(imgId).into(item_small);
     }

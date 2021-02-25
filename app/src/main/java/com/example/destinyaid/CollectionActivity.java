@@ -25,7 +25,7 @@ public class CollectionActivity extends Fragment {
         View view=inflater.inflate(R.layout.collectiontab,container,false);
         recyclerView=view.findViewById(R.id.recycler_collection);
 
-        collectionitems.add(new CollectionItem("name","0",R.drawable.ganbit2));
+        collectionitems.add(new CollectionItem("name","0",R.drawable.osiris));
         adapter=new CollectionAdapter(getActivity(),collectionitems);
         recyclerView.setAdapter(adapter);
 

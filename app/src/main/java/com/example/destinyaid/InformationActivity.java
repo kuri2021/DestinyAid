@@ -1,9 +1,5 @@
 package com.example.destinyaid;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,17 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import org.jsoup.Jsoup;
@@ -29,18 +21,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class InformationActivity extends Fragment {
 
@@ -49,8 +31,10 @@ public class InformationActivity extends Fragment {
     MyAdapter adapter;
     Spinner spinner;
     ArrayAdapter spinner_adapter;
-    ViewPager2 vp;
-    ArrayList<String> arrayList=new ArrayList<>();
+    Information_ViewPager_Adapter viewPager_adapter;
+    ViewPager viewPager;
+    ArrayList<Integer> img= new ArrayList<>();
+
 
     @Nullable
     @Override
@@ -65,31 +49,72 @@ public class InformationActivity extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
-                    case 0://시련의장
-                        items.clear();
-//                        items.add(new Item(R.drawable.pvp,"점령","거점을 점령하고 상대를 처치하여 용맹을 획득하세요"));
-                        adapter=new MyAdapter(getActivity(),items);
-                        recyclerView.setAdapter(adapter);
-                        recyclerView.setBackgroundColor(0xff771111);
-                        break;
-                    case 1://공격전,황혼전
+                    case 0://공격전
                         items.clear();
                         new Thread(){
                             @Override
                             public void run() {
                                 super.run();
-                                Document document = null;
+                                Document document=null;
                                 try {
-                                    document = Jsoup.connect("https://resetde.ga/ordeal") .get();
-                                    for(int i=0;i<100;i++){
-                                        Elements title=document.select("h5").eq(i);
-                                        Log.d("naver","title"+title.text());
+                                    document = Jsoup.connect("https://resetde.ga/main").get();
+                                    for(int i=0;i<3;i++){
+                                        Elements title=document.select("div.card-body").eq(0).select("h5").eq(i+1);
+                                        Log.d("main_title","title"+title.text());
+                                        Elements elements=document.select("div.card-body").eq(0).select("p.text-light").eq(i);
+                                        Log.d("strike_Contents","elements"+elements.text());
+
+
+                                        String title_striker=title.text();
+                                        String content_striker=elements.text();
+                                        items.add(new Item(R.drawable.striker2,title_striker,content_striker));
+                                        getActivity().runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                adapter=new MyAdapter(getActivity(),items);
+                                                recyclerView.setAdapter(adapter);
+                                                recyclerView.setBackgroundColor(0xff771111);
+                                            }
+                                        });
+
+                                    }
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }.start();
+
+                        break;
+                    case 1://전장
+                        items.clear();
+                        new Thread(){
+                            @Override
+                            public void run() {
+                                super.run();
+                                Document document=null;
+                                try {
+                                    document = Jsoup.connect("https://resetde.ga/main").get();
+                                    for(int i=0;i<2;i++){
+                                        Elements title=document.select("div.card-body").eq(1).select("h5").eq(i+1);
+                                        Log.d("main_title","title"+title.text());
+                                        Elements elements=document.select("div.card-body").eq(1).select("p.text-light").eq(i);
+                                        Log.d("strike_Contents","elements"+elements.text());
+
+
+                                        String title_striker=title.text();
+                                        String content_striker=elements.text();
+                                        items.add(new Item(R.drawable.juenjang,title_striker,content_striker));
+                                        getActivity().runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                adapter=new MyAdapter(getActivity(),items);
+                                                recyclerView.setAdapter(adapter);
+                                                recyclerView.setBackgroundColor(0xff111177);
+                                            }
+                                        });
+
                                     }
 
-                                    for(int i=0;i<100;i++){
-                                        Elements elements=document.select("p.text-light").eq(i);
-                                        Log.d("naver","elements"+elements.text());
-                                    }
 
                                 } catch (IOException e) {
                                     e.printStackTrace();
@@ -97,28 +122,166 @@ public class InformationActivity extends Fragment {
 
                             }
                         }.start();
-//                        items.add(new Item(R.drawable.pve,"선봉대 공격전","선봉대가 도시의 적을 상대로 최우선 순위의 임무를 수행할 수로자를 찾고있습니다."));
+//
                         break;
-                    case 2://레이드
+                    case 2://황혼전 시련
                         items.clear();
-                        items.add(new Item(R.drawable.pve,"선봉대 공격전","선봉대가 도시의 적을 상대로 최우선 순위의 임무를 수행할 수로자를 찾고있습니다."));
-                        adapter=new MyAdapter(getActivity(),items);
-                        recyclerView.setAdapter(adapter);
-                        recyclerView.setBackgroundColor(0xff111177);
+                        new Thread(){
+                            @Override
+                            public void run() {
+                                super.run();
+                                Document document=null;
+                                try {
+                                    document = Jsoup.connect("https://resetde.ga/ordeal").get();
+                                    for(int i=0;i<4;i++){
+                                        Elements title=document.select("div.card col-lg-3 p-4").select("h5");
+                                        Log.d("main_title","title"+title.text());
+                                        Elements elements=document.select("div.card col-lg-3 p-4").eq(3).select("p.text-light").eq(i+1);
+                                        Log.d("strike_Contents","elements"+elements.text());
+
+
+                                        String title_striker=title.text();
+                                        String content_striker=elements.text();
+                                        items.add(new Item(R.drawable.straijer,title_striker,content_striker));
+                                        getActivity().runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                adapter=new MyAdapter(getActivity(),items);
+                                                recyclerView.setAdapter(adapter);
+                                                recyclerView.setBackgroundColor(0xffff4400);
+                                            }
+                                        });
+
+                                    }
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }.start();
                         break;
-                    case 3://유로파
+                    case 3://잊혀진구역
                         items.clear();
-                        items.add(new Item(R.drawable.pve,"선봉대 공격전","선봉대가 도시의 적을 상대로 최우선 순위의 임무를 수행할 수로자를 찾고있습니다."));
-                        adapter=new MyAdapter(getActivity(),items);
-                        recyclerView.setAdapter(adapter);
-                        recyclerView.setBackgroundColor(0xff111177);
+                        new Thread(){
+                            @Override
+                            public void run() {
+                                super.run();
+                                Document document=null;
+                                try {
+                                    document = Jsoup.connect("https://resetde.ga/lost").get();
+                                     //전설잊구
+                                    Element title=document.select("h4").first();
+                                        Log.d("main_title","title"+title.text());
+                                        Elements elements=document.select("p").eq(1);
+                                        Log.d("strike_Contents","elements"+elements.text());
+
+                                        String title_striker=title.text();
+                                        String content_striker=elements.text();
+                                        items.add(new Item(R.drawable.lost,title_striker,content_striker));
+                                        getActivity().runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                adapter=new MyAdapter(getActivity(),items);
+                                                recyclerView.setAdapter(adapter);
+                                                recyclerView.setBackgroundColor(0xff444444);
+                                            }});
+                                     // 마스터잊구
+                                    Elements title2=document.select("h4").eq(1);
+                                    Log.d("main_title","title"+title.text());
+                                    Elements elements2=document.select("p").eq(13);
+                                    Log.d("strike_Contents","elements"+elements.text());
+
+                                    String title_striker2=title2.text();
+                                    String content_striker2=elements2.text();
+                                    items.add(new Item(R.drawable.lost,title_striker2,content_striker2));
+                                    getActivity().runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            adapter=new MyAdapter(getActivity(),items);
+                                            recyclerView.setAdapter(adapter);
+                                            recyclerView.setBackgroundColor(0xff444444);
+                                        }});
+
+
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }.start();
                         break;
-                    case 4://기타
+                    case 4://오시리스의시험
                         items.clear();
-                        items.add(new Item(R.drawable.pve,"선봉대 공격전","선봉대가 도시의 적을 상대로 최우선 순위의 임무를 수행할 수로자를 찾고있습니다."));
-                        adapter=new MyAdapter(getActivity(),items);
-                        recyclerView.setAdapter(adapter);
-                        recyclerView.setBackgroundColor(0xff111177);
+                        new Thread(){
+                            @Override
+                            public void run() {
+                                super.run();
+                                Document document=null;
+                                try {
+                                    document = Jsoup.connect("https://resetde.ga/trials").get();
+                                    for(int i=0;i<4;i++){
+                                        Elements title=document.select("h4").eq(i);
+                                        Log.d("main_title","title"+title.text());
+                                        Elements elements=document.select("div.card col-lg-3 p-4").eq(3).select("p.text-light").eq(i+1);
+                                        Log.d("strike_Contents","elements"+elements.text());
+
+
+                                        String title_striker=title.text();
+                                        String content_striker=elements.text();
+                                        if(content_striker!=""){
+                                            items.add(new Item(R.drawable.osiris,title_striker,content_striker));
+                                        }else{
+                                            items.add(new Item(R.drawable.osiris,title_striker,"???"));
+                                        }
+
+                                        getActivity().runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                adapter=new MyAdapter(getActivity(),items);
+                                                recyclerView.setAdapter(adapter);
+                                                recyclerView.setBackgroundColor(0xffffaa00);
+                                            }
+                                        });
+
+                                    }
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }.start();
+                        break;
+                    case 5://레이드
+                        items.clear();
+                        new Thread(){
+                            @Override
+                            public void run() {
+                                super.run();
+                                Document document=null;
+                                try {
+                                    document = Jsoup.connect("https://resetde.ga/raid").get();
+                                    for(int i=0;i<3;i++){
+                                        Elements title=document.select("h4").eq(i);
+                                        Log.d("main_title","title"+title.text());
+                                        Elements elements=document.select("p.text-light").eq(i);
+                                        Log.d("strike_Contents","elements"+elements.text());
+
+
+                                        String title_striker=title.text();
+                                        String content_striker=elements.text();
+                                        items.add(new Item(R.drawable.raid,title_striker,content_striker));
+                                        getActivity().runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                adapter=new MyAdapter(getActivity(),items);
+                                                recyclerView.setAdapter(adapter);
+                                                recyclerView.setBackgroundColor(0xff000000);
+                                            }
+                                        });
+
+                                    }
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }.start();
                         break;
                 }
             }
@@ -128,13 +291,11 @@ public class InformationActivity extends Fragment {
 
             }
         });
-
-
-
+        viewPager=view.findViewById(R.id.pager);
+        img.add(R.drawable.calender);
+        viewPager_adapter=new Information_ViewPager_Adapter(getActivity().getApplicationContext(),img);
+        viewPager.setAdapter(viewPager_adapter);
 
         return view;
     }
-
-
-
 }

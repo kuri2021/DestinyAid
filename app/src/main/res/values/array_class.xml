@@ -18,10 +18,11 @@
         <item>직업방어구</item>
     </string-array>
     <string-array name="주간리셋활동">
-        <item>시련의장</item>
-        <item>공격전/황혼전</item>
-        <item>레이드</item>
-        <item>유로파</item>
-        <item>기타</item>
+        <item>선봉대공격전</item>
+        <item>전장</item>
+        <item>황혼전:시련</item>
+        <item>잊혀진 구역</item>
+        <item>오시리스의시험</item>
+        <item>레이드 도전(순서:딥스톤무덤/구원의정원/마지막소원)</item>
     </string-array>
 </resources>

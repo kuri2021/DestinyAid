@@ -5,17 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kakao.sdk.user.UserApiClient;
 
@@ -52,25 +47,21 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.bnv_information:
                         fragment=new InformationActivity();
-//                        informationActivity= (InformationActivity) fragmentManager.findFragmentById(R.id.fragment);
                         tran.replace(R.id.fragment,fragment);
                         tran.commit();
                         break;
                     case R.id.bnv_inventory:
                         fragment=new InventoryActivity();
-//                        inventoryActivity= (InventoryActivity) fragmentManager.findFragmentById(R.id.fragment);
                         tran.replace(R.id.fragment,fragment);
                         tran.commit();
                         break;
                     case R.id.bnv_clan:
-                        fragment=new ClanActivity();
-//                        clanActivity= (ClanActivity) fragmentManager.findFragmentById(R.id.fragment);
+                        fragment=new Weekly_Reset();
                         tran.replace(R.id.fragment,fragment);
                         tran.commit();
                         break;
                     case R.id.bnv_collection:
                         fragment=new CollectionActivity();
-//                        collectionActivity= (CollectionActivity) fragmentManager.findFragmentById(R.id.fragment);
                         tran.replace(R.id.fragment,fragment);
                         tran.commit();
                         break;

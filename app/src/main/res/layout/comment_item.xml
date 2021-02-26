@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:contentPadding="8dp"
+    app:cardCornerRadius="4dp"
+    android:layout_margin="4dp"
+    android:backgroundTint="#ffaaaaaa">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/profile_img"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_baseline_account_circle_24"/>
+        <TextView
+            android:id="@+id/profile_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/profile_img"
+            android:text="nickname"
+            android:layout_marginLeft="8dp"/>
+        <TextView
+            android:id="@+id/comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/profile_img"
+            android:layout_below="@+id/profile_nickname"
+            android:text="댓글"
+            android:layout_marginLeft="8dp"/>
+    </RelativeLayout>
+
+
+
+
+</com.google.android.material.card.MaterialCardView>

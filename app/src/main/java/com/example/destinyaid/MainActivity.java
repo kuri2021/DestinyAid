@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager=getSupportFragmentManager();
         Intent intent=getIntent();
         String email=intent.getStringExtra("email");
-        Toast.makeText(this, G.nickname+email , Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, G.nickname+email , Toast.LENGTH_SHORT).show();
 
 
 

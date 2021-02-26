@@ -27,10 +27,15 @@ import static com.example.destinyaid.G.profileImageUrl;
 
 public class LoginActivity extends AppCompatActivity {
 
+//    ImageView iv;
+//    TextView tv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+//        iv=findViewById(R.id.pro);
+//        tv=findViewById(R.id.protv);
 
 
 
@@ -45,7 +50,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
                 if(oAuthToken !=null){
-                    Toast.makeText(LoginActivity.this, "성공", Toast.LENGTH_SHORT).show();
                     UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
                         @Override
                         public Unit invoke(User user, Throwable throwable) {
@@ -57,7 +61,10 @@ public class LoginActivity extends AppCompatActivity {
                                 G.profileImageUrl=user.getKakaoAccount().getProfile().getThumbnailImageUrl();
                                 Intent intent=new Intent(getApplicationContext(),MainActivity.class);
                                 intent.putExtra("email",email);
-                                Toast.makeText(LoginActivity.this, email, Toast.LENGTH_SHORT).show();
+
+//                                Glide.with(getApplicationContext()).load(profileImageUrl).into(iv);
+//                                tv.setText(nickname);
+
                                 startActivity(intent);
 
                             }else {

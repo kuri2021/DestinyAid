@@ -15,6 +15,17 @@
         android:src="@drawable/gost"
         android:layout_marginTop="70dp"/>
 
+<!--    <ImageView-->
+<!--        android:id="@+id/pro"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        />-->
+<!--    <TextView-->
+<!--        android:id="@+id/protv"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_toRightOf="@+id/pro"/>-->
+
 
 
     <ImageView

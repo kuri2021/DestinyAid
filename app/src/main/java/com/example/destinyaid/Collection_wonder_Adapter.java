@@ -102,6 +102,9 @@ public class Collection_wonder_Adapter extends RecyclerView.Adapter {
                     intent.putExtra("name",name);
                     intent.putExtra("img",Equipitem_iv);
 
+                    context.startActivity(intent);
+
+
                 }
             });
 

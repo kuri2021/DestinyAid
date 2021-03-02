@@ -8,6 +8,12 @@
     tools:context=".Item_DetailActivity"
     android:background="#ff404040">
 
+<!--    <TextView-->
+<!--        android:id="@+id/test_tv"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textColor="@color/white"/>-->
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -48,7 +54,7 @@
                 android:layout_alignTop="@+id/item_coller"
                 android:layout_margin="12dp"
                 android:layout_toRightOf="@+id/item_small"
-                android:text="text"
+                android:text="유언"
                 android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -87,23 +93,22 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/item_kategorie"
                 android:padding="12dp"
-                android:src="@drawable/ic_baseline_toc_24" />
+                android:src="@drawable/fanfire" />
 
             <TextView
                 android:id="@+id/special_function_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/item_kategorie"
-                android:text="text"
+                android:text="부채사격\n자동발사무기 입니다. 비조준 사격 시 추가 정밀 피해를 주며, 재장전 속도와 정확도도 높아집니다."
                 android:layout_toRightOf="@+id/special_function"
                 android:textColor="@color/white"
-                android:textSize="24sp"
                 android:padding="12dp"
                 android:singleLine="false"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_below="@+id/special_function_text"
+                android:layout_below="@+id/special_function"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:background="#ffffffff" />
@@ -113,80 +118,76 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/special_function"
             android:padding="12dp"
-            android:src="@drawable/ic_baseline_toc_24" />
+            android:src="@drawable/nasun" />
 
             <TextView
                 android:id="@+id/function1_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/special_function"
-                android:text="text"
-                android:layout_toRightOf="@+id/special_function"
+                android:text="나선강선\n균형 잡힌 총열입니다."
+                android:layout_toRightOf="@+id/function1"
                 android:textColor="@color/white"
-                android:textSize="24sp"
                 android:padding="12dp"
                 android:singleLine="false"/>
             <ImageView
                 android:id="@+id/function2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/function1_text"
+                android:layout_below="@id/function1"
                 android:padding="12dp"
-                android:src="@drawable/ic_baseline_toc_24" />
+                android:src="@drawable/accurized" />
 
             <TextView
                 android:id="@+id/function2_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/function1_text"
-                android:text="text"
-                android:layout_toRightOf="@+id/special_function"
+                android:layout_below="@+id/function1"
+                android:text="정밀조준탄약\n 이 무기는 더 먼거리까지 발사할수있습니다."
+                android:layout_toRightOf="@+id/function2"
                 android:textColor="@color/white"
-                android:textSize="24sp"
                 android:padding="12dp"
                 android:singleLine="false"/>
             <ImageView
                 android:id="@+id/function3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/function2_text"
+                android:layout_below="@id/function2"
                 android:padding="12dp"
-                android:src="@drawable/ic_baseline_toc_24" />
+                android:src="@drawable/hip_fire_grip" />
 
             <TextView
                 android:id="@+id/function3_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/function2_text"
-                android:text="text"
+                android:layout_below="@+id/function2"
+                android:text="속사손잡이\n비조준 사격 시 정확도,안정성,정밀공격조준보정이 증가합니다."
                 android:layout_toRightOf="@+id/function3"
                 android:textColor="@color/white"
-                android:textSize="24sp"
                 android:padding="12dp"
                 android:singleLine="false"/>
             <ImageView
                 android:id="@+id/function4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/function3_text"
+                android:layout_below="@id/function3"
                 android:padding="12dp"
-                android:src="@drawable/ic_baseline_toc_24" />
+                android:src="@drawable/textured_grip" />
 
             <TextView
                 android:id="@+id/function4_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/function3_text"
-                android:text="text"
-                android:layout_toRightOf="@+id/function3"
+                android:layout_below="@+id/function3"
+                android:text="무늬손잡이\n이 무기의 손잡이는 마찰력이 특히 강합니다."
+                android:layout_toRightOf="@+id/function4"
                 android:textColor="@color/white"
-                android:textSize="24sp"
                 android:padding="12dp"
                 android:singleLine="false"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_below="@+id/function4_text"
+                android:layout_below="@+id/function4"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:background="#ffffffff" />
@@ -194,7 +195,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="이야기"
-                android:layout_below="@id/function4_text"
+                android:layout_below="@id/function4"
                 android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold"
@@ -204,7 +205,7 @@
                 android:id="@+id/lore"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/function4_text"
+                android:layout_below="@+id/function4"
                 android:textSize="16sp"
                 android:textColor="@color/white"
                 android:layout_marginTop="40dp"
@@ -238,7 +239,7 @@
                     android:layout_height="wrap_content"
                     android:text="확인"
                     android:onClick="click_success"
-                    android:layout_toRightOf="@+id/et"
+                    android:layout_toRightOf="@+id/et_cmt"
                     android:layout_below="@+id/lore"
                     android:backgroundTint="@color/white"
                     android:textColor="#ff444444"/>

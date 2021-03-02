@@ -18,6 +18,8 @@ import com.kakao.sdk.common.util.Utility;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.User;
 
+import java.net.URL;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
@@ -88,5 +90,11 @@ public class LoginActivity extends AppCompatActivity {
     public void NextBtn(View view) {
         Intent intent=new Intent(this,MainActivity.class);
         startActivity(intent);
+    }
+
+    public void Bungie(View view) {
+        Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.bungie.net/en/OAuth/Authorize"));
+        startActivity(intent);
+
     }
 }

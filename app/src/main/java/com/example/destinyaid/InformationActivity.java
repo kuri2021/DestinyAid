@@ -142,7 +142,7 @@ public class InformationActivity extends Fragment {
 
                                         String title_striker=title.text();
                                         String content_striker=elements.text();
-                                        items.add(new Item(R.drawable.straijer,title_striker,content_striker));
+                                        items.add(new Item(R.drawable.pve,title_striker,content_striker));
                                         getActivity().runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {

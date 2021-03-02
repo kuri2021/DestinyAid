@@ -21,10 +21,10 @@ public class Collection_Wonder extends AppCompatActivity {
         items.add(new Collection_wonder_Item("유언","test"
                 ,R.drawable.lastword_small
                 ,R.drawable.kinds
-                ,R.drawable.ic_baseline_backpack_24
-                ,R.drawable.ic_baseline_backpack_24
-                ,R.drawable.ic_baseline_backpack_24
-                ,R.drawable.ic_baseline_backpack_24));
+                ,R.drawable.nasun
+                ,R.drawable.accurized
+                ,R.drawable.hip_fire_grip
+                ,R.drawable.textured_grip));
         recyclerView=findViewById(R.id.recycler_collection_wonder);
         adapter= new Collection_wonder_Adapter(this,items);
         recyclerView.setAdapter(adapter);

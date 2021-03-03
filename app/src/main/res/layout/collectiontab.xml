@@ -4,15 +4,15 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#ff404040"
-    android:padding="16dp">
+    android:background="#ff404040">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_collection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical"/>
+        android:orientation="vertical"
+        android:padding="16dp"/>
 
 
 </LinearLayout>

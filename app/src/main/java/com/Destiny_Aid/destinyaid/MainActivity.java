@@ -9,6 +9,8 @@ import androidx.fragment.app.FragmentTransaction;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -31,8 +33,10 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager=getSupportFragmentManager();
         Intent intent=getIntent();
         String email=intent.getStringExtra("email");
-        final String[] tvNickname = {intent.getStringExtra("nickname")};
-//        Toast.makeText(this, G.nickname+email , Toast.LENGTH_SHORT).show();
+        String Nickname = getStringExtra("nickname");
+        byte[] byteArray=getIntent().getByteArrayExtra("image");
+        Bitmap image= BitmapFactory.decodeByteArray(byteArray,0,byteArray.length);
+        //        Toast.makeText(this, G.nickname+email , Toast.LENGTH_SHORT).show();
 
 
 
@@ -103,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.makeText(MainActivity.this, "로그아웃 실패", Toast.LENGTH_SHORT).show();
 
                                     //로그인 회원정보 화면들 모두 초기화
-                                    tvNickname[0] ="";
+                                    Nickname[0] ="";
 //                                    Glide.with(MainActivity.this).load(R.mipmap.ic_launcher).into(ivProfile);
                                 }
                                 return null;

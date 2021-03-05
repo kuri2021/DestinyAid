@@ -3,6 +3,8 @@ package com.Destiny_Aid.destinyaid;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +19,8 @@ import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.common.util.Utility;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.User;
+
+import java.io.ByteArrayOutputStream;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
@@ -55,16 +59,22 @@ public class LoginActivity extends AppCompatActivity {
                                 long id=user.getId();
 
                                 G.nickname=user.getKakaoAccount().getProfile().getNickname();
+                                String nickname=G.nickname.toString();
                                 String email=user.getKakaoAccount().getEmail();
                                 G.profileImageUrl=user.getKakaoAccount().getProfile().getThumbnailImageUrl();
                                 Intent intent=new Intent(getApplicationContext(),MainActivity.class);
                                 intent.putExtra("email",email);
                                 intent.putExtra("nickname", nickname);
+                                Bitmap bitmap= BitmapFactory.decodeResource(getResources(), Integer.parseInt(G.profileImageUrl));
+                                ByteArrayOutputStream stream=new ByteArrayOutputStream();
+                                bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream);
+                                byte[] byteArray=stream.toByteArray();
+                                intent.putExtra("image",byteArray);
 
-                                Glide.with(getApplicationContext()).load(G.profileImageUrl).into(iv);
-                                tv.setText(nickname);
+//                                Glide.with(getApplicationContext()).load(G.profileImageUrl).into(iv);
+//                                tv.setText(nickname);
 
-//                                startActivity(intent);
+                                startActivity(intent);
 
                             }else {
                                 Toast.makeText(LoginActivity.this, "사용자 정보요청 실패", Toast.LENGTH_SHORT).show();

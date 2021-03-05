@@ -27,6 +27,8 @@ public class Collection_Wonder extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_keyboard_backspace_24);
         getSupportActionBar().setTitle("");
 
+        
+
         items.add(new Collection_wonder_Item("유언","test"
                 ,R.drawable.lastword_small
                 ,R.drawable.kinds

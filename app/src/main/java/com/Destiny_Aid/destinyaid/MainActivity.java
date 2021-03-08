@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager=getSupportFragmentManager();
         Intent intent=getIntent();
         String email=intent.getStringExtra("email");
-        String Nickname = getStringExtra("nickname");
-        byte[] byteArray=getIntent().getByteArrayExtra("image");
-        Bitmap image= BitmapFactory.decodeByteArray(byteArray,0,byteArray.length);
+        final String[] Nickname = {intent.getStringExtra("nickname")};
+//        byte[] byteArray=getIntent().getByteArrayExtra("image");
+//        Bitmap image= BitmapFactory.decodeByteArray(byteArray,0,byteArray.length);
         //        Toast.makeText(this, G.nickname+email , Toast.LENGTH_SHORT).show();
 
 

@@ -65,11 +65,11 @@ public class LoginActivity extends AppCompatActivity {
                                 Intent intent=new Intent(getApplicationContext(),MainActivity.class);
                                 intent.putExtra("email",email);
                                 intent.putExtra("nickname", nickname);
-                                Bitmap bitmap= BitmapFactory.decodeResource(getResources(), Integer.parseInt(G.profileImageUrl));
-                                ByteArrayOutputStream stream=new ByteArrayOutputStream();
-                                bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream);
-                                byte[] byteArray=stream.toByteArray();
-                                intent.putExtra("image",byteArray);
+//                                Bitmap bitmap= BitmapFactory.decodeResource(getResources(), Integer.parseInt(G.profileImageUrl));
+//                                ByteArrayOutputStream stream=new ByteArrayOutputStream();
+//                                bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream);
+//                                byte[] byteArray=stream.toByteArray();
+//                                intent.putExtra("image",byteArray);
 
 //                                Glide.with(getApplicationContext()).load(G.profileImageUrl).into(iv);
 //                                tv.setText(nickname);

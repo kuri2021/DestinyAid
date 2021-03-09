@@ -133,9 +133,9 @@ public class InformationActivity extends Fragment {
                                 try {
                                     document = Jsoup.connect("https://resetde.ga/ordeal").get();
                                     for(int i=0;i<4;i++){
-                                        Elements title=document.select("div.card col-lg-3 p-4").select("h5");
+                                        Elements title=document.select("h5").eq(i);
                                         Log.d("main_title","title"+title.text());
-                                        Elements elements=document.select("div.card col-lg-3 p-4").eq(3).select("p.text-light").eq(i+1);
+                                        Elements elements=document.select("p.text-light").eq(i);
                                         Log.d("strike_Contents","elements"+elements.text());
 
 

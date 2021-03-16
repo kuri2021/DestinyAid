@@ -34,6 +34,49 @@
             android:textStyle="bold"
             android:padding="8dp"
             android:textColor="@color/white"/>
+        <RadioGroup
+            android:id="@+id/rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/skilled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="숙련자"
+                android:textColor="@color/white"
+                android:checked="true"
+                android:visibility="gone"/>
+            <RadioButton
+                android:id="@+id/hero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="영웅"
+                android:textColor="@color/white"
+                android:visibility="gone"/>
+            <RadioButton
+                android:id="@+id/legend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="전설"
+                android:textColor="@color/white"
+                android:visibility="gone"/>
+            <RadioButton
+                android:id="@+id/master"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="마스터"
+                android:textColor="@color/white"
+                android:visibility="gone"/>
+            <RadioButton
+                android:id="@+id/grandmaster"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="그랜드 마스터"
+                android:textColor="@color/white"
+                android:visibility="gone"/>
+
+        </RadioGroup>
 
         <Spinner
             android:id="@+id/spinner"

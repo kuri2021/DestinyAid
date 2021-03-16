@@ -7,7 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,6 +36,8 @@ public class InformationActivity extends Fragment {
     Information_ViewPager_Adapter viewPager_adapter;
     ViewPager viewPager;
     ArrayList<Integer> img= new ArrayList<>();
+    RadioButton rb1,rb2,rb3,rb4,rb5;
+    RadioGroup radioGroup;
 
 
     @Nullable
@@ -44,6 +49,13 @@ public class InformationActivity extends Fragment {
         spinner.setAdapter(spinner_adapter);
         spinner_adapter.setDropDownViewResource(R.layout.spinner_dropdown);
         recyclerView=view.findViewById(R.id.crucible_recyclerview);
+        rb1=view.findViewById(R.id.skilled);
+        rb2=view.findViewById(R.id.hero);
+        rb3=view.findViewById(R.id.legend);
+        rb4=view.findViewById(R.id.master);
+        rb5=view.findViewById(R.id.grandmaster);
+
+        radioGroup=view.findViewById(R.id.rg);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -125,13 +137,28 @@ public class InformationActivity extends Fragment {
                         break;
                     case 2://황혼전 시련
                         items.clear();
+                        rb1.setVisibility(View.VISIBLE);
+                        rb2.setVisibility(View.VISIBLE);
+                        rb3.setVisibility(View.VISIBLE);
+                        rb4.setVisibility(View.VISIBLE);
+                        rb5.setVisibility(View.VISIBLE);
                         new Thread(){
                             @Override
                             public void run() {
                                 super.run();
                                 Document document=null;
+                                RadioGroup.OnCheckedChangeListener radioGroupButtonChangeListener =new RadioGroup.OnCheckedChangeListener() {
+                                    @Override
+                                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                                        if(rb1.isChecked()){
+                                            Toast.makeText(getContext(), "라디오 그룹 버튼1 눌렸습니다.", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                };
+
                                 try {
                                     document = Jsoup.connect("https://resetde.ga/ordeal").get();
+
                                     for(int i=0;i<4;i++){
                                         Elements title=document.select("h5").eq(i);
                                         Log.d("main_title","title"+title.text());

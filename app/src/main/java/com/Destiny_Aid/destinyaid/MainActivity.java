@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                                 });
                         AlertDialog alertDialog2= builder2.create();
                         alertDialog2.show();
-//                        fragment=new Weekly_Reset();
+//                        fragment=new Free_Board();
 //                        tran.replace(R.id.fragment,fragment);
 //                        tran.commit();
                         break;

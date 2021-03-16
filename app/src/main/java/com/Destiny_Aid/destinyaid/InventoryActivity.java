@@ -32,69 +32,61 @@ public class InventoryActivity extends Fragment {
     TabLayout tabLayout;
     Spinner spinner_crt;
     ArrayAdapter spinner_adapter;
-    String apiKey="49e6de48ae2748b98426b183ce2cd068";
+    String apiKey = "49e6de48ae2748b98426b183ce2cd068";
     TextView tv;
     Button btn;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.inventorytab,container,false);
-        spinner_crt=view.findViewById(R.id.job_class);
-        spinner_adapter=ArrayAdapter.createFromResource(getContext(),R.array.job_class,R.layout.spinner_selected);
+        View view = inflater.inflate(R.layout.inventorytab, container, false);
+        spinner_crt = view.findViewById(R.id.job_class);
+        tv = view.findViewById(R.id.test_tv);
+        btn = view.findViewById(R.id.btn);
+        spinner_adapter = ArrayAdapter.createFromResource(getContext(), R.array.job_class, R.layout.spinner_selected);
         spinner_crt.setAdapter(spinner_adapter);
-        tv=view.findViewById(R.id.test_tv);
-        btn=view.findViewById(R.id.btn);
-        String url="https://www.bungie.net/platform/Destiny/Manifest/InventoryItem/1274330687/";
 
+        new Thread(){
+            public void run() {
+                super.run();
+                String url = "https://www.bungie.net/platform/Destiny/Manifest/InventoryItem/1274330687/";
+                try {
+                    URL obj = new URL(url);
+                    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
+                    con.setRequestMethod("GET");
+                    con.setRequestProperty("X-API-KEY", apiKey);
+                    int responseCode = con.getResponseCode();
+                    tv.setText("Response Code : " + responseCode);
 
-
-        FragmentTransaction transaction=getChildFragmentManager().beginTransaction();
-        transaction.add(R.id.inventory_frame,new Fragment_Weapon());
-        transaction.commit();
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new Thread(){
-                    @Override
-                    public void run() {
-                        super.run();
-                        try {
-                            URL obj=new URL(url);
-                            HttpURLConnection con= (HttpURLConnection) obj.openConnection();
-
-                            con.setRequestMethod("GET");
-                            con.setRequestProperty("X-API-KEY",apiKey);
-                            int responseCode=con.getResponseCode();
 //            Log.d("contents","Response Code", responseCode);
 
-                            BufferedReader in=new BufferedReader(new InputStreamReader(con.getInputStream()));
-                            String inputLine;
-                            String response="";
-                            while((inputLine=in.readLine())!=null){
-                                response+=inputLine;
-                            }
-                            in.close();
-
-                            JsonParser parser = new JsonParser();
-                            JsonObject json = (JsonObject) parser.parse(response);
-                            JsonElement itemName=json.getAsJsonObject("Response");
-                            Log.i("tag", String.valueOf(itemName));
-                            tv.setText((CharSequence) itemName);
-
-
-
-                        } catch (MalformedURLException e) {
-                            e.printStackTrace();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+                    BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                    String inputLine;
+                    String response = "";
+                    while ((inputLine = in.readLine()) != null) {
+                        response += inputLine;
                     }
-                };
-            }
-        });
+                    in.close();
 
+                    JsonParser parser = new JsonParser();
+                    JsonObject json = (JsonObject) parser.parse(response);
+
+
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+
+
+    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.add(R.id.inventory_frame,new Fragment_Weapon());
+        transaction.commit();
 
 
 //        tabLayout=view.findViewById(R.id.tab);
@@ -130,5 +122,6 @@ public class InventoryActivity extends Fragment {
 
 
         return view;
+
     }
 }

@@ -3,12 +3,13 @@
 
     <item android:id="@+id/bnv_information"
         android:title="업데이트"
-        android:icon="@drawable/ic_baseline_arrow_circle_up_24"/>
+        android:icon="@drawable/ic_baseline_arrow_circle_up_24"
+        android:iconTint="#ffffffff"/>
     <item android:id="@+id/bnv_inventory"
         android:title="인벤토리"
         android:icon="@drawable/ic_baseline_backpack_24"/>
     <item android:id="@+id/bnv_clan"
-        android:title="주간리셋"
+        android:title="게시판"
         android:icon="@drawable/ic_baseline_emoji_flags_24"/>
     <item android:id="@+id/bnv_collection"
         android:title="수집품"

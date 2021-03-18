@@ -26,7 +26,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class InformationActivity extends Fragment {
+public class InformationActivity extends Fragment{
 
     RecyclerView recyclerView;
     ArrayList<Item> items=new ArrayList<>();
@@ -136,55 +136,101 @@ public class InformationActivity extends Fragment {
 //
                         break;
                     case 2://황혼전 시련
-                        items.clear();
+
+
                         rb1.setVisibility(View.VISIBLE);
                         rb2.setVisibility(View.VISIBLE);
                         rb3.setVisibility(View.VISIBLE);
                         rb4.setVisibility(View.VISIBLE);
                         rb5.setVisibility(View.VISIBLE);
+
                         new Thread(){
                             @Override
                             public void run() {
                                 super.run();
-                                Document document=null;
-                                RadioGroup.OnCheckedChangeListener radioGroupButtonChangeListener =new RadioGroup.OnCheckedChangeListener() {
+                                final Document[] document = {null};
+                                radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                                     @Override
                                     public void onCheckedChanged(RadioGroup group, int checkedId) {
-                                        if(rb1.isChecked()){
-                                            Toast.makeText(getContext(), "라디오 그룹 버튼1 눌렸습니다.", Toast.LENGTH_SHORT).show();
+
+                                        switch (checkedId){
+                                            case R.id.skilled:
+                                                items.clear();
+                                                Toast.makeText(getActivity(), "1", Toast.LENGTH_SHORT).show();
+                                                try {
+                                                    document[0] =Jsoup.connect("https://resetde.ga/ordeal").get();
+                                                    for(int i=0;i<4;i++){
+                                                        Elements title=document[0].select(".card col-lg-3 p-4").eq(0).select("h5").eq(1);
+                                                        Log.d("main_title","title"+title.text());
+                                                        Elements content=document[0].select(".card col-lg-3 p-4").eq(0).select("text-light");
+                                                        Log.d("strike_Contents","elements"+content.text());
+                                                        String title_striker=title.text();
+                                                        String content_striker=content.text();
+                                                        items.add(new Item(R.drawable.pve,title_striker,content_striker));
+                                                        getActivity().runOnUiThread(new Runnable() {
+                                                            @Override
+                                                            public void run() {
+                                                                adapter=new MyAdapter(getActivity(),items);
+                                                                recyclerView.setAdapter(adapter);
+                                                                recyclerView.setBackgroundColor(0xffff4400);
+                                                            }
+                                                        });
+                                                    }
+                                                } catch (IOException e) {
+                                                    e.printStackTrace();
+                                                }
+                                                break;
+                                            case R.id.hero:
+                                                Toast.makeText(getActivity(), "2", Toast.LENGTH_SHORT).show();
+                                                break;
+                                            case R.id.legend:
+                                                Toast.makeText(getActivity(), "3", Toast.LENGTH_SHORT).show();
+                                                break;
+                                            case R.id.master:
+                                                Toast.makeText(getActivity(), "4", Toast.LENGTH_SHORT).show();
+                                                break;
+                                            case R.id.grandmaster:
+                                                Toast.makeText(getActivity(), "5", Toast.LENGTH_SHORT).show();
+                                                break;
+
                                         }
+                                        break;
                                     }
-                                };
-
-                                try {
-                                    document = Jsoup.connect("https://resetde.ga/ordeal").get();
-
-                                    for(int i=0;i<4;i++){
-                                        Elements title=document.select("h5").eq(i);
-                                        Log.d("main_title","title"+title.text());
-                                        Elements elements=document.select("p.text-light").eq(i);
-                                        Log.d("strike_Contents","elements"+elements.text());
+                                    break;
+                                });
+                                break;
 
 
-                                        String title_striker=title.text();
-                                        String content_striker=elements.text();
-                                        items.add(new Item(R.drawable.pve,title_striker,content_striker));
-                                        getActivity().runOnUiThread(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                adapter=new MyAdapter(getActivity(),items);
-                                                recyclerView.setAdapter(adapter);
-                                                recyclerView.setBackgroundColor(0xffff4400);
-                                            }
-                                        });
 
-                                    }
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }.start();
-                        break;
+//                                try {
+//                                    document[0] = Jsoup.connect("https://resetde.ga/ordeal").get();
+//
+//                                    for(int i=0;i<4;i++){
+//                                        Elements title= document[0].select("h5").eq(i);
+//                                        Log.d("main_title","title"+title.text());
+//                                        Elements elements= document[0].select("p.text-light").eq(i);
+//                                        Log.d("strike_Contents","elements"+elements.text());
+//
+//
+//                                        String title_striker=title.text();
+//                                        String content_striker=elements.text();
+//                                        items.add(new Item(R.drawable.pve,title_striker,content_striker));
+//                                        getActivity().runOnUiThread(new Runnable() {
+//                                            @Override
+//                                            public void run() {
+//                                                adapter=new MyAdapter(getActivity(),items);
+//                                                recyclerView.setAdapter(adapter);
+//                                                recyclerView.setBackgroundColor(0xffff4400);
+//                                            }
+//                                        });
+//
+//                                    }
+//                                } catch (IOException e) {
+//                                    e.printStackTrace();
+//                                }
+//                            }
+//                        }.start();
+
                     case 3://잊혀진구역
                         items.clear();
                         new Thread(){
@@ -324,4 +370,7 @@ public class InformationActivity extends Fragment {
 
         return view;
     }
+
+
+
 }

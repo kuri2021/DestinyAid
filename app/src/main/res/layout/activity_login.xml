@@ -19,7 +19,7 @@
         android:id="@+id/pro"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_above="@+id/steam"
+        android:layout_above="@+id/loginbtn"
         android:src="@drawable/ic_baseline_account_circle_24"
         android:layout_marginLeft="120dp"
         android:layout_marginBottom="20dp"/>
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/pro"
-        android:layout_above="@+id/steam"
+        android:layout_above="@+id/loginbtn"
         android:text="NICKNAME"
         android:textColor="@color/white"
         android:layout_marginBottom="35dp"
@@ -53,17 +53,18 @@
         android:textStyle="bold"
         android:text="게스트 로그인"
         android:backgroundTint="#ffff4400"
+        android:layout_marginBottom="40dp"
         android:onClick="NextBtn"/>
-    <Button
-        android:id="@+id/steam"
-        android:layout_width="300dp"
-        android:layout_height="55dp"
-        android:layout_above="@+id/loginbtn"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="4dp"
-        android:textStyle="bold"
-        android:text="Bungie.Net 로그인"
-        android:backgroundTint="#ff333333"
-        android:onClick="Bungie"/>
+<!--    <Button-->
+<!--        android:id="@+id/steam"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:layout_above="@+id/loginbtn"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_margin="4dp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:text="Bungie.Net 로그인"-->
+<!--        android:backgroundTint="#ff333333"-->
+<!--        android:onClick="Bungie"/>-->
 
 </RelativeLayout>

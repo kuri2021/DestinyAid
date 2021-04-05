@@ -29,7 +29,7 @@ public class Collection_Wonder extends AppCompatActivity {
 
         
 
-        items.add(new Collection_wonder_Item("유언","test"
+        items.add(new Collection_wonder_Item("유언","핸드캐논"
                 ,R.drawable.lastword_small
                 ,R.drawable.kinds
                 ,R.drawable.nasun

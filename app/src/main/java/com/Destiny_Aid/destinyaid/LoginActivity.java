@@ -99,9 +99,9 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void Bungie(View view) {
-        Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.bungie.net/en/OAuth/Authorize"));
-        startActivity(intent);
-
-    }
+//    public void Bungie(View view) {
+//        Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.bungie.net/en/OAuth/Authorize"));
+//        startActivity(intent);
+//
+//    }
 }

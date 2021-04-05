@@ -30,8 +30,8 @@ public class Item_DetailActivity extends AppCompatActivity {
     TextView item_name,item_kategorie,special_function_text,function1_text,function2_text,function3_text,function4_text,lore;
     ImageView item_full,item_small,kinds,special_function,function1,function2,function3,function4,comment_img;
     View item_coller;
-    EditText et_cmt=findViewById(R.id.et_cmt);;
-    TextView test_tv;
+//    EditText et_cmt=findViewById(R.id.et_cmt);
+//    TextView test_tv;
 
 
 
@@ -87,13 +87,13 @@ public class Item_DetailActivity extends AppCompatActivity {
 //    }
 
     public void click_success(View view) {
-        new Thread(){
-            @Override
-            public void run() {
-                String et=et_cmt.getText().toString();
-
-                String serverUrl="http://kuri.dothome.co.kr/Destiny/getcmt.php";
-            }
-        }.start();
+//        new Thread(){
+//            @Override
+//            public void run() {
+//                String et=et_cmt.getText().toString();
+//
+//                String serverUrl="http://kuri.dothome.co.kr/Destiny/getcmt.php";
+//            }
+//        }.start();
     }
 }

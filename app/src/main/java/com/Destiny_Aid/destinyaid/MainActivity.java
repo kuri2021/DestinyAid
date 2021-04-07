@@ -57,38 +57,21 @@ public class MainActivity extends AppCompatActivity {
                         tran.replace(R.id.fragment,fragment);
                         tran.commit();
                         break;
-//                    case R.id.bnv_inventory:
-////                        AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
-////                        builder.setTitle("STOP!!")
-////                                .setMessage("현재 이용할수없는 페이지입니다.")
-////                                .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-////                                    @Override
-////                                    public void onClick(DialogInterface dialog, int which) {
-////                                        dialog.dismiss();
-////                                    }
-////                                });
-////                        AlertDialog alertDialog= builder.create();
-////                        alertDialog.show();
-//
-//                        fragment=new InventoryActivity();
-//                        tran.replace(R.id.fragment,fragment);
-//                        tran.commit();
-//                        break;
                     case R.id.bnv_clan:
-                        AlertDialog.Builder builder2=new AlertDialog.Builder(MainActivity.this);
-                        builder2.setTitle("STOP!!")
-                                .setMessage("현재 이용할수없는 페이지입니다.")
-                                .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.dismiss();
-                                    }
-                                });
-                        AlertDialog alertDialog2= builder2.create();
-                        alertDialog2.show();
-//                        fragment=new Notice_BoardActivity();
-//                        tran.replace(R.id.fragment,fragment);
-//                        tran.commit();
+//                        AlertDialog.Builder builder2=new AlertDialog.Builder(MainActivity.this);
+//                        builder2.setTitle("STOP!!")
+//                                .setMessage("현재 이용할수없는 페이지입니다.")
+//                                .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(DialogInterface dialog, int which) {
+//                                        dialog.dismiss();
+//                                    }
+//                                });
+//                        AlertDialog alertDialog2= builder2.create();
+//                        alertDialog2.show();
+                        fragment=new Free_Board();
+                        tran.replace(R.id.fragment,fragment);
+                        tran.commit();
                         break;
                     case R.id.bnv_collection:
                         fragment=new CollectionActivity();

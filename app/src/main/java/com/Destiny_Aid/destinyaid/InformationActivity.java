@@ -33,7 +33,7 @@ public class InformationActivity extends Fragment {
     MyAdapter adapter;
     Spinner spinner;
     ArrayAdapter spinner_adapter;
-    Information_ViewPager_Adapter viewPager_adapter;
+    G.Information_ViewPager_Adapter viewPager_adapter;
     ViewPager viewPager;
     ArrayList<Integer> img = new ArrayList<>();
     RadioButton rb1, rb2, rb3, rb4, rb5;
@@ -356,7 +356,7 @@ public class InformationActivity extends Fragment {
         });
         viewPager = view.findViewById(R.id.pager);
         img.add(R.drawable.calender);
-        viewPager_adapter = new Information_ViewPager_Adapter(getActivity().getApplicationContext(), img);
+        viewPager_adapter = new G.Information_ViewPager_Adapter(getActivity().getApplicationContext(), img);
         viewPager.setAdapter(viewPager_adapter);
 
         return view;

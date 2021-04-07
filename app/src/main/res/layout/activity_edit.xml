@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#404040"
+    tools:context=".EditActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="카카오톡 프로필과 이미지가 보여집니다."
+        android:textColor="@color/white"/>
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="20"
+        android:hint="제목(15자이내)"
+        android:padding="8dp"
+        android:inputType="text"
+        android:background="@drawable/bg_edit"/>
+    <EditText
+        android:id="@+id/et_contents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="내용"
+        android:padding="8dp"
+        android:inputType="text"
+        android:background="@drawable/bg_edit"
+        android:layout_marginTop="16dp" />
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="clcikselectimage"
+        android:src="@drawable/ic_baseline_image_search_24"
+        android:background="@drawable/bg_edit"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00a3d2"
+        android:text="작성완료"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:onClick="click_ok"/>
+<!--        android:onClick="clcikbtn"/>-->
+
+
+
+</LinearLayout>

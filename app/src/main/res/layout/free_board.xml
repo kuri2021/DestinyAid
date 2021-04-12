@@ -24,7 +24,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/white"
         app:fabSize="auto"
         android:src="@drawable/ic_baseline_edit_24" />
 

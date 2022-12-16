@@ -9,7 +9,6 @@ public class LoginApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
-        KakaoSdk.init(this,"1826258c33342419a13498719d9f8043");
+        KakaoSdk.init(this, String.valueOf(R.string.kakao_app_key));
     }
 }

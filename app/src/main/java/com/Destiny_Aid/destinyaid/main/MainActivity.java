@@ -1,4 +1,4 @@
-package com.Destiny_Aid.destinyaid;
+package com.Destiny_Aid.destinyaid.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,15 +6,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
+import com.Destiny_Aid.destinyaid.CollectionActivity;
+import com.Destiny_Aid.destinyaid.Free_Board;
+import com.Destiny_Aid.destinyaid.InformationActivity;
+import com.Destiny_Aid.destinyaid.R;
+import com.Destiny_Aid.destinyaid.login.LoginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.kakao.sdk.user.UserApiClient;
 
@@ -34,9 +34,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent=getIntent();
         String email=intent.getStringExtra("email");
         final String[] Nickname = {intent.getStringExtra("nickname")};
-//        byte[] byteArray=getIntent().getByteArrayExtra("image");
-//        Bitmap image= BitmapFactory.decodeByteArray(byteArray,0,byteArray.length);
-        //        Toast.makeText(this, G.nickname+email , Toast.LENGTH_SHORT).show();
 
 
 
@@ -79,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                         tran.commit();
                         break;
                     case R.id.bnv_logout:
-                        Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
+                        Intent intent=new Intent(getApplicationContext(), LoginActivity.class);
                         startActivity(intent);
                         UserApiClient.getInstance().logout(new Function1<Throwable, Unit>() {
                             @Override

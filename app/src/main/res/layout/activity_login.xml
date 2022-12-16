@@ -1,70 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".LoginActivity"
-    android:padding="16dp"
-    android:background="#ff404040">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/gost2"
-        android:layout_marginTop="70dp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".login.LoginActivity"
+        android:padding="16dp"
+        android:background="#ff404040">
 
-    <ImageView
-        android:id="@+id/pro"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_above="@+id/loginbtn"
-        android:src="@drawable/ic_baseline_account_circle_24"
-        android:layout_marginLeft="120dp"
-        android:layout_marginBottom="20dp"/>
-    <TextView
-        android:id="@+id/protv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/pro"
-        android:layout_above="@+id/loginbtn"
-        android:text="NICKNAME"
-        android:textColor="@color/white"
-        android:layout_marginBottom="35dp"
-        android:layout_marginLeft="15dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/gost2"
+            android:layout_marginTop="70dp"/>
+
+        <ImageView
+            android:id="@+id/pro"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/steam"
+            android:src="@drawable/ic_baseline_account_circle_24"
+            android:layout_marginLeft="120dp"
+            android:layout_marginBottom="20dp"/>
+        <TextView
+            android:id="@+id/protv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/pro"
+            android:layout_above="@+id/steam"
+            android:text="NICKNAME"
+            android:textColor="@color/white"
+            android:layout_marginBottom="35dp"
+            android:layout_marginLeft="15dp"/>
 
 
 
-    <ImageView
-        android:id="@+id/loginbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/next"
-        android:src="@drawable/kakao_login_medium_wide"
-        android:onClick="loginBtn"/>
-    <Button
-        android:id="@+id/next"
-        android:layout_width="300dp"
-        android:layout_height="55dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:textStyle="bold"
-        android:text="게스트 로그인"
-        android:backgroundTint="#ffff4400"
-        android:layout_marginBottom="40dp"
-        android:onClick="NextBtn"/>
-<!--    <Button-->
-<!--        android:id="@+id/steam"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="55dp"-->
-<!--        android:layout_above="@+id/loginbtn"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_margin="4dp"-->
-<!--        android:textStyle="bold"-->
-<!--        android:text="Bungie.Net 로그인"-->
-<!--        android:backgroundTint="#ff333333"-->
-<!--        android:onClick="Bungie"/>-->
+        <ImageView
+            android:id="@+id/loginbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/next"
+            android:src="@drawable/kakao_login_medium_wide"
+            android:onClick="loginBtn"/>
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/next"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="40dp"
+            android:backgroundTint="#ffff4400"
+            android:onClick="NextBtn"
+            android:text="게스트 로그인"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/steam"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:layout_above="@+id/loginbtn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:backgroundTint="#ff333333"
+            android:onClick="Bungie"
+            android:text="Bungie.Net 로그인"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</layout>
+

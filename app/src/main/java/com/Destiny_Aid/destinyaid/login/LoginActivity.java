@@ -1,6 +1,7 @@
 package com.Destiny_Aid.destinyaid.login;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Destiny_Aid.destinyaid.G;
+import com.Destiny_Aid.destinyaid.login.model.viewmodel.LoginActivityViewModel;
 import com.Destiny_Aid.destinyaid.main.MainActivity;
 import com.Destiny_Aid.destinyaid.R;
 import com.kakao.sdk.auth.LoginClient;
@@ -35,7 +37,11 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        LoginActivityViewModel viewModel=new ViewModelProvider(this).get(LoginActivityViewModel.class);.
+        viewModel.getUsers().observe(this, users -> {
+            // update UI
+        });
+//        setContentView(R.layout.activity_login);
         iv=findViewById(R.id.pro);
         tv=findViewById(R.id.protv);
         steamBtn=findViewById(R.id.steam);
